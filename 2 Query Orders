@@ -1,0 +1,43 @@
+1)
+SELECT COUNT(*) 
+FROM Customer 
+WHERE Grade > (
+SELECT AVG(Grade) 
+FROM Customer 
+WHERE City = 'Banglore');
+
+2)
+SELECT S.Name, S.Salesman_id, COUNT(C.Customer_id) AS CustomerCount 
+FROM Salesman S 
+JOIN Customer C ON S.Salesman_id = C.Salesman_id 
+GROUP BY S.Name, S.Salesman_id 
+HAVING COUNT(C.Customer_id) > 1;
+
+3)
+SELECT S.Name, S.City 
+FROM Salesman S 
+WHERE S.Salesman_id IN (
+SELECT DISTINCT Salesman_id FROM Customer) 
+UNION 
+SELECT S.Name, S.City 
+FROM Salesman S 
+WHERE S.Salesman_id NOT IN (
+SELECT DISTINCT Salesman_id 
+FROM Customer);
+
+
+4)
+CREATE VIEW MaxOrderSalesman AS 
+SELECT S.Salesman_id, S.Name, O.Ord_No, O.Purchase_Amt, O.Ord_Date 
+FROM Customer C 
+JOIN Product O ON C.Customer_id = O.Customer_id 
+JOIN Salesman S ON C.Salesman_id = S.Salesman_id 
+WHERE (O.Ord_date, O.Purchase_amt) = (
+SELECT Ord_date, MAX(Purchase_amt)
+FROM Product      
+WHERE Ord_Date = '2022-12-03');
+
+
+select * from MaxOrdersSalesman;
+
+
