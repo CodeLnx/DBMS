@@ -37,7 +37,18 @@ SELECT Ord_date, MAX(Purchase_amt)
 FROM Product      
 WHERE Ord_Date = '2022-12-03');
 
-
 select * from MaxOrdersSalesman;
+
+
+5)
+DELETE FROM Product WHERE Salesman_id = 1000;
+DELETE FROM Customer WHERE Salesman_id = 1000;
+DELETE FROM Salesman WHERE Salesman_id = 1000;
+
+6)
+CREATE INDEX idx_customer_id ON Customer (Customer_id);
+
+
+
 
 
