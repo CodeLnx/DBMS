@@ -23,8 +23,24 @@ join Movies_cast MC on A.Act_id=MC.Act_id
 join Movies M on MC.Mov_id=M.Mov_id 
 where Mov_year<'2002-10-01' or Mov_year>'2020-01-01';
 
+//**This query gives the name of actor who has worked oin both before 20002 and after 2020 (learn for safety concerns)**//
+
+SELECT A.Act_name 
+FROM Actor A 
+JOIN Movies_cast MC ON A.Act_id = MC.Act_id 
+JOIN Movies M ON MC.Mov_id = M.Mov_id 
+WHERE M.Mov_year < '2002-10-01' OR M.Mov_year > '2020-01-01'
+GROUP BY A.Act_name 
+HAVING COUNT(DISTINCT CASE WHEN M.Mov_year > '2020-01-01' THEN M.Mov_id END) > 0 AND COUNT(DISTINCT CASE WHEN M.Mov_year < '2002-10-01' THEN M.Mov_id END) > 0;
 
 4)
+select M.Mov_id,R.Rev_stars 
+from Rating R 
+join Movies M on R.Mov_id=M.Mov_id 
+where M.Mov_id in (
+select Mov_id from Rating)
+order by M.Mov_title;
+
 
 
 
