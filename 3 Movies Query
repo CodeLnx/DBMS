@@ -41,6 +41,15 @@ where M.Mov_id in (
 select Mov_id from Rating)
 order by M.Mov_title;
 
-
+5)
+update Rating 
+set Rev_stars=5 
+where Mov_id in(
+select Mov_id 
+from Movies  
+where Dir_id=(
+select Dir_id  
+from Director  
+where Dir_Name="Spidberg"));
 
 
