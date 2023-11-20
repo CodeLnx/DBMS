@@ -1,0 +1,8 @@
+// CREATE STATEMENT??
+
+create table Actor(
+Act_id int(10) primary key,
+Act_name varchar(20),
+Act_gender varchar(15));
+
+
