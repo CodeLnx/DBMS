@@ -21,15 +21,14 @@ WHERE Book_id = '123';
 DELETE FROM Book_authors
 WHERE Book_id = '123';
 
-
 DELETE FROM Book
 WHERE Book_id = '123';
 
 4)
 CREATE VIEW BOOK_BY_YEAR AS 
-SELECT Book_id, Title, Pub_name, Pub_Year 
-FROM Book 
+select * from Book 
 where Pub_year='2019-12-05';
+
 
 SELECT * FROM BOOK_BY_YEAR;
 
