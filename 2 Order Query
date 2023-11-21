@@ -25,7 +25,6 @@ WHERE S.Salesman_id NOT IN (
 SELECT DISTINCT Salesman_id 
 FROM Customer);
 
-
 4)
 CREATE VIEW MaxOrdersSalesman AS 
 SELECT Salesman_id, Purchase_Amt 
@@ -35,9 +34,7 @@ SELECT MAX(Purchase_Amt)
 FROM Product O   
 WHERE O.Ord_Date='2022-12-03');
 
-
 select * from MaxOrdersSalesman;
-
 
 5)
 DELETE FROM Product WHERE Salesman_id = 1000;
