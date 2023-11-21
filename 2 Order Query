@@ -26,10 +26,12 @@ SELECT DISTINCT Salesman_id
 FROM Customer);
 
 //**Without union**//
-SELECT S.Name, S.City,
-CASE WHEN C.Salesman_id IS NOT NULL THEN 'Exists' ELSE 'Not Exists' END AS Customer_Status 
-FROM Salesman S 
-JOIN Customer C ON S.Salesman_id = C.Salesman_id;
+
+SELECT S.Salesman_id, S.City,
+CASE WHEN C.Salesman_id IS NOT NULL THEN 'Exists' ELSE 'Not Exists' END AS Customer_Status
+FROM Salesman S
+LEFT JOIN Customer C ON S.Salesman_id = C.Salesman_id;
+
 
 4)
 CREATE VIEW MaxOrdersSalesman AS 
