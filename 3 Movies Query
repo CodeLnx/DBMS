@@ -32,7 +32,7 @@ GROUP BY A.Act_name
 HAVING COUNT(DISTINCT CASE WHEN M.Mov_year > '2020-01-01' THEN M.Mov_id END) > 0 AND COUNT(DISTINCT CASE WHEN M.Mov_year < '2002-10-01' THEN M.Mov_id END) > 0;
 
 4)
-select M.Mov_id,R.Rev_stars 
+select M.Mov_Title,R.Rev_stars 
 from Rating R 
 join Movies M on R.Mov_id=M.Mov_id 
 where M.Mov_id in (
