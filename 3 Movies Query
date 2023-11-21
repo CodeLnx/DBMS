@@ -40,7 +40,7 @@ select Mov_id from Rating)
 order by M.Mov_title;
 
 5)
-update fuk u
+update Rating
 set Rev_stars=5 
 where Mov_id in(
 select Mov_id 
