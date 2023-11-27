@@ -1,0 +1,14 @@
+create table Department(
+Dno int(10) primary key,
+Dname varchar(10),
+Mgrssn int(10),
+Mgrstartdate date);
+
+-- Add an index to Dno in the Department table
+
+ALTER TABLE Department ADD INDEX idx_DNo (DNo);
+
+-- Add an index to Mgrssn in the Department table
+
+ALTER TABLE Department ADD INDEX idx_Mgrssn (Mgrssn);
+
