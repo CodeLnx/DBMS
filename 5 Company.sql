@@ -35,16 +35,27 @@ Dno int(10),
 foreign key(Dno) references Department(Dno));
 
 create table Works_on(
-SSN int(10),Pno int(10),
-Hours time,
-foreign key(SSN) references Employee(SSN),
-foreign key(Pno) references Project(Pno));
+SSN int(10), 
+Pno int(10), 
+Hours time, 
+foreign key(SSN) references Employee(SSN), 
+foreign key(Pno) references Project(Pno), 
+primary key(SSN,Pno));
+
 
 //INSERT STATEMENT//
 
+insert into Employee (SSN,Name,Address,Sex,Salary) values(1,'IOT','XYZ','M',75000);
+
+insert into Department values(911,'IOT',1,'2020-01-17');
+
+--Update the table to add Superssn and Dno for relation Employee
+
+update Employee set Superssn='1' ,Dno='911' where SSN='1';
 
 
+insert into Project values(2201,'IOT','XYZ',911);
 
+insert into Dlocation values(911,'ABC');
 
-
-
+insert into Works_on values(1,2201,'08:30:00');
