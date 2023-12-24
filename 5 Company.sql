@@ -8,7 +8,8 @@ Mgrstartdate date);
 
 create table Employee( 
 SSN int(10) primary key, 
-Name varchar(10), 
+Fname varchar(10), 
+Lname varchar(10), 
 Address varchar(20), 
 Sex varchar(15), 
 Salary int(20), 
