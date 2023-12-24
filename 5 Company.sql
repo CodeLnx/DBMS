@@ -8,8 +8,7 @@ Mgrstartdate date);
 
 create table Employee( 
 SSN int(10) primary key, 
-Fname varchar(10), 
-Lname varchar(10), 
+Name varchar(10), 
 Address varchar(20), 
 Sex varchar(15), 
 Salary int(20), 
@@ -46,7 +45,7 @@ primary key(SSN,Pno));
 
 //INSERT STATEMENT//
 
-insert into Employee (SSN,Fname,Lname,Address,Sex,Salary) values(1,'John','Scoot','XYZ','M',75000);
+insert into Employee (SSN,Name,Address,Sex,Salary) values(1,'John Scoot','XYZ','M',75000);
 
 insert into Department values(911,'Accounts',1,'2020-01-17');
 
