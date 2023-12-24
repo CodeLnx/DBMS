@@ -18,16 +18,10 @@ SELECT USN, Subcode, Test1
 FROM Iamarks WHERE USN = '1';
 
 4)
-UPDATE Iamarks I 
-SET Finalia = ( 
-SELECT (Test1 + Test2 + Test3 - lowest_test) / 2 
-FROM (
-SELECT Test1, Test2, Test3, LEAST(Test1, Test2, Test3) AS lowest_test         
-FROM Iamarks 
-WHERE USN = I.USN AND Subcode = I.Subcode) AS subquery );
+UPDATE Iamarks SET Finalia = (Test1 + Test2 + Test3 - LEAST( Test1, Test2, Test3))/2;
 
 5) 
-SELECT S.SName, SS.Sem, SS.Sec, S.USN, S.Address,
+SELECT S.SName, SS.Sem, SS.Sec, S.USN,
 CASE 
 WHEN IA.Finalia BETWEEN 17 AND 20 THEN 'Outstanding' 
 WHEN IA.Finalia BETWEEN 12 AND 16 THEN 'Average' 
@@ -39,5 +33,3 @@ JOIN Class C ON S.USN = C.USN
 JOIN Semsec SS ON C.SSID = SS.SSID 
 JOIN Iamarks IA ON S.USN = IA.USN 
 WHERE SS.Sem = 8 AND SS.Sec IN ('A', 'B', 'C');
-
-
