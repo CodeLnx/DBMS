@@ -9,20 +9,12 @@ where Dir_Name="Hitchcock");
 2)
 select Mov_title from 
 Movies where Mov_id in(
-select Mov_id 
+select Act_id 
 from Movies_cast 
-group by Mov_id 
-having count(Mov_id)>=2);
+group by Act_id 
+having count(*)>=2);
 
 3)
-select A.Act_name    //use **DISTINCT A.Act_name** to not get repeated names else not required// 
-from Actor A 
-join Movies_cast MC on A.Act_id=MC.Act_id 
-join Movies M on MC.Mov_id=M.Mov_id 
-where Mov_year<'2002-10-01' or Mov_year>'2020-01-01';
-
-//**This query gives the name of actor who has worked in year before 2002 and after 2020 (learn for safety concerns)**//
-
 SELECT A.Act_name 
 FROM Actor A 
 JOIN Movies_cast MC ON A.Act_id = MC.Act_id 
@@ -48,5 +40,3 @@ where Dir_id=(
 select Dir_id  
 from Director  
 where Dir_Name="Spidberg"));
-
-
