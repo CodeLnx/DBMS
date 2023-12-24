@@ -13,9 +13,9 @@ JOIN Semsec SS ON C.SSID = SS.SSID
 GROUP BY SS.Sem, SS.Sec, S.Gender;
 
 3) 
-CREATE VIEW Event1Marks AS
-SELECT USN, Subcode, Test1
-FROM Iamarks WHERE USN = '1';
+CREATE VIEW Event1Marks AS 
+SELECT USN, Subcode, Test1 
+FROM Iamarks WHERE USN LIKE '01JST__IS%';
 
 4)
 UPDATE Iamarks SET Finalia = (Test1 + Test2 + Test3 - LEAST( Test1, Test2, Test3))/2;
