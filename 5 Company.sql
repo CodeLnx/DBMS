@@ -51,7 +51,7 @@ insert into Department values(911,'Accounts',1,'2020-01-17');
 
 --Update the table to add Superssn and Dno for relation Employee
 
-update Employee set Superssn='1' ,Dno='911' where SSN='1';
+update Employee set Superssn='1' ,Dno='911' where SSN='2';
 
 
 insert into Project values(2201,'IOT','XYZ',911);
