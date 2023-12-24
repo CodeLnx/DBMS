@@ -46,9 +46,9 @@ primary key(SSN,Pno));
 
 //INSERT STATEMENT//
 
-insert into Employee (SSN,Name,Address,Sex,Salary) values(1,'IOT','XYZ','M',75000);
+insert into Employee (SSN,Fname,Lname,Address,Sex,Salary) values(1,'John','Scoot','XYZ','M',75000);
 
-insert into Department values(911,'IOT',1,'2020-01-17');
+insert into Department values(911,'Accounts',1,'2020-01-17');
 
 --Update the table to add Superssn and Dno for relation Employee
 
