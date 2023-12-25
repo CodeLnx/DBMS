@@ -20,4 +20,13 @@ WHERE Dname = 'Accounts';
 
 4)
 
+5)
+SELECT Dno, COUNT(SSN) AS Number_of_Employees
+FROM Employee E1 WHERE Salary > 600000 AND NOT EXISTS (
+SELECT 1 FROM Employee E2 
+WHERE E2.Dno = E1.Dno AND E2.Salary <= 600000
+HAVING COUNT(E2.SSN) > 5) 
+GROUP BY Dno;
+
+
 
