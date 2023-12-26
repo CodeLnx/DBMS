@@ -19,6 +19,15 @@ join Department D on E.Dno=D.Dno
 WHERE Dname = 'Accounts';
 
 4)
+SELECT E.Name, E.Dno, D.Dname FROM Employee E 
+JOIN Department D ON E.Dno = D.Dno 
+WHERE E.SSN NOT IN (
+SELECT W.SSN FROM Works_on W 
+WHERE W.Pno IN (
+SELECT P.Pno FROM Project P
+WHERE P.Dno = E.Dno )
+GROUP BY W.SSN     
+HAVING COUNT(DISTINCT W.Pno) < (SELECT COUNT(P.Pno) FROM Project P WHERE P.Dno = E.Dno ) );
 
 5)
 SELECT Dno, COUNT(SSN) AS Number_of_Employees
