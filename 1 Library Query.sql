@@ -27,7 +27,8 @@ WHERE Book_id = '123';
 
 4)
 CREATE VIEW BOOK_BY_YEAR AS 
-select * from Book;
+select Book_id, Title, Pub_year, Pub_name 
+from Book order by Pub_year;
 
 SELECT * FROM BOOK_BY_YEAR
 WHERE Pub_Year = '2020-06-17';
