@@ -23,7 +23,7 @@ HAVING COUNT(DISTINCT CASE WHEN M.Mov_year > '2020-01-01' THEN M.Mov_id END) > 0
 SELECT M.Mov_title, R.Rev_stars 
 FROM Movies M 
 JOIN Rating R ON M.Mov_id = R.Mov_id 
-WHERE R.Rev_stars IS NOT NULL                               ( else use >=1 )  
+WHERE R.Rev_stars IS NOT NULL                            --   ( else use >=1 )  --
 ORDER BY M.Mov_title;
 
 5)
