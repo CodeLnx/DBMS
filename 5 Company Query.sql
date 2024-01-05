@@ -1,6 +1,6 @@
 1)
-SELECT DISTINCT P.Pno FROM 
-Project P 
+SELECT DISTINCT P.Pno
+FROM Project P 
 JOIN Works_on W ON P.Pno = W.Pno 
 JOIN Employee E ON W.SSN = E.SSN 
 WHERE E.Name LIKE '%Scott';
@@ -30,7 +30,8 @@ WHERE W.SSN = E.SSN );
 
 5)
 SELECT Dno, COUNT(SSN) AS Number_of_Employees
-FROM Employee E1 WHERE Salary > 600000 AND NOT EXISTS (
+FROM Employee E1 WHERE Salary > 600000 
+AND NOT EXISTS (
 SELECT 1 FROM Employee E2 
 WHERE E2.Dno = E1.Dno AND E2.Salary <= 600000
 HAVING COUNT(E2.SSN) > 5) 
